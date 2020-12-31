@@ -18,7 +18,23 @@ It seems that on some occasions (always) the RBPI OS is a bitch and does not rem
 
 To avoid this, seems some fiddling with `/lib/udev/rules.d/` is required, but could not find specific file to do the deed, so that is that. I instead decided to take the "official route": albeit a little annoying, configure (via `raspi-config`) predictable interface names. **THAT** worked.
 
+### 1.b Want to completely disable onboard wifi and/or bluetoot?
+
+This will have the added benefit of not having to mess with the static naming of the interface!, and it will prevent system issues if you want to set up an external USB bluetooth interface (it will fail on reboot or whenever you plug the bluetooth dongle before starting the pi).
+
+Then you have to edit `sudo vim /boot/config.txt` to add this at the end:
+
+```conf
+# disabling onboard bluetooth
+dtoverlay=disable-bt
+# disabling onboard wifi
+dtoverlay=disable-wifi
+```
+
 ## 2. Setup wifi dongle and configure as monitor interface
+
+**THIS STEP IS NOW OPTIONAL** as Kismet now enables monitor mode on its own... if your installation doesn't manage to set the interface into monitor mode, then follow this steps:
+
 1. Check the external wifi dongle plugged, can do monitoring: `iw dev`, check the name of the new interface, then inspect with `iw phy phy<number> info` and search for a line containing **\* monitor**
 2. `sudo vim /etc/network/interfaces.d/<interface>` this content:
 ```
