@@ -61,7 +61,7 @@ sudo apt update
 1. Install kissmet
    -  During install answer **YES** to the question wether using suid helpers.
 ```bash
-sudo apt install Kismet -y
+sudo apt install kismet -y
 ```
 2. Add user pi to Kismet group: `sudo usermod -aG Kismet pi`
 3. Log out and in again: `logout`...
