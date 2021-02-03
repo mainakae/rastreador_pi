@@ -63,7 +63,7 @@ sudo apt update
 ```bash
 sudo apt install kismet -y
 ```
-2. Add user pi to Kismet group: `sudo usermod -aG Kismet pi`
+2. Add user pi to Kismet group: `sudo usermod -aG kismet pi`
 3. Log out and in again: `logout`...
    - Optionally check wether the new group has taken effect: `groups`
 
@@ -87,7 +87,7 @@ sudo apt install kismet -y
 #
 # Kismet does not pre-define any sources, permanent sources can be added here
 # or in Kismet_site.conf
-source=mon1
+source=wlan0
 source=hci0
 ```
 3. Start Kismet: `Kismet`
@@ -146,6 +146,9 @@ All of this with the following lines:
 
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+
+
+
 sudo systemctl enable nodered.service
 ```
 
