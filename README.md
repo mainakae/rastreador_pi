@@ -52,11 +52,11 @@ iface <interface> inet manual
 1. Add Kismet repo:
 ```bash
 # add gpg key and repo
-wget -O - https://www.Kismetwireless.net/repos/Kismet-release.gpg.key | sudo apt-key add -
-echo 'deb https://www.Kismetwireless.net/repos/apt/release/buster buster main' | sudo tee /etc/apt/sources.list.d/Kismet.list
+wget -O - https://www.kismetwireless.net/repos/kismet-release.gpg.key | sudo apt-key add -
+echo 'deb https://www.kismetwireless.net/repos/apt/release/buster buster main' | sudo tee /etc/apt/sources.list.d/kismet.list
 
 # Update apt
-sudo apt udpate
+sudo apt update
 ```
 1. Install kissmet
    -  During install answer **YES** to the question wether using suid helpers.
